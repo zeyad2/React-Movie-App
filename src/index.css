@@ -156,7 +156,14 @@
 }
 
 @utility gradient{
-  @apply bg-linear-to-r from-[#D6C7FF] to-[#AB8BFF] bg-clip-text text-transparent
+  @apply bg-linear-to-r from-[#AB8BFF] to-[#D6C7FF]  bg-clip-text text-transparent
+}
+@utility btnGradient{
+  @apply bg-linear-to-r from-[#AB8BFF] to-[#D6C7FF]
+}
+
+@utility btnHover{
+  @apply bg-linear-to-r from-[#D6C7FF] to-[#AB8BFF] transition duration-300 
 }
 
 @utility fancy-text {

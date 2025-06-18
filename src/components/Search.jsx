@@ -1,25 +1,29 @@
 import { useState } from "react";
-const Search = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+
+const Search = ({ searchQuery, setSearchQuery, onKeyUp }) => {
+  const handleSearch = (e) => {
+    onKeyUp(e);
+  };
+
   return (
-    <div className=" flex bg-light-100/5 w-[50%] mx-auto p-4 rounded-full mb-10 max-md:w-full ">
+    <div className="flex bg-light-100/5 w-[50%] mx-auto p-4 rounded-full mb-10 max-md:w-full">
       <img
         src="../../public/search.svg"
-        className=" cursor-pointer"
+        className="cursor-pointer"
         alt="search icon"
+        onClick={() => onKeyUp({ key: 'Enter' })}
       />
 
       <input
         className="text-white w-full bg-transparent mx-4 outline-none"
         type="text"
-        id="Search "
+        id="Search"
         placeholder="Search Through Thousands Of Movies"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyUp={handleSearch}
       />
       <label htmlFor="Search"></label>
-
-      <h3 className="text-white">{searchTerm}</h3>
     </div>
   );
 };
