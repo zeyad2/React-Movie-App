@@ -31,7 +31,7 @@ const Hero = () => {
       <div className="w-[40%] mx-auto min-w-[310px] overflow-hidden">
         <img 
           ref={imageRef}
-          src="../../public/hero.png"  
+          src="/hero.png"  
           alt="Hero illustration"
           className="transition-transform duration-300 ease-out"
         />
