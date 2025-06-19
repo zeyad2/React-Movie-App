@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import Header from "./components/Header";
-import MovieCard from "./components/MovieCard";
-import Search from "./components/Search";
-import Navbar from "./components/Navbar";
+import React from 'react'
+import Hero from './components/Hero';
+import { useState,useEffect } from 'react';
+import Search from './components/Search';
 import { fetchPopularMovies, searchMovies } from "./api/TMDB";
+import MovieCard from "./components/MovieCard";
+import Navbar from './components/Navbar';
 
-const App = () => {
+
+const LandingPage = () => {
   const [Movies, SetMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -30,7 +32,7 @@ const App = () => {
   }, [searchQuery]);
 
   const handleSearch = async (e) => {
-    if (e.key === 'Enter' && searchQuery.trim()) {
+    if (e.key === "Enter" && searchQuery.trim()) {
       try {
         const data = await searchMovies(searchQuery);
         SetMovies(data);
@@ -42,19 +44,18 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#030014]">
-      <Navbar />
-      <main className="px-4 w-full pt-20">
-        <Header />
-
-        <Search 
-          searchQuery={searchQuery} 
-          setSearchQuery={setSearchQuery} 
-          onKeyUp={handleSearch} 
+    <main className="px-4 w-full pt-20">
+      <Navbar/>
+       <Hero />
+       
+       <Search
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          onKeyUp={handleSearch}
         />
 
         <h2 className="text-white mb-15 text-3xl text-center">
-          {searchQuery.trim() ? 'Search Results' : 'Popular'}
+          {searchQuery.trim() ? "Search Results" : "Popular"}
         </h2>
 
         <div className="flex flex-wrap gap-6 justify-center mb-14">
@@ -71,9 +72,9 @@ const App = () => {
             <p className="text-white">No movies found</p>
           )}
         </div>
-      </main>
-    </div>
-  );
-};
 
-export default App;
+    </main>
+  )
+}
+
+export default LandingPage

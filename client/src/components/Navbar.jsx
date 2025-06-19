@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,32 +11,48 @@ const Navbar = () => {
           {/* Logo and Brand */}
           <div className="flex items-center">
             <img src="/logo.png" alt="Movie App Logo" className="h-8 w-8" />
-            <span className="ml-2 text-white text-xl font-bold gradient">MovieApp</span>
+            <span className="ml-2 text-white text-xl font-bold gradient">
+              MovieApp
+            </span>
           </div>
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex flex-1 justify-center">
             <div className="flex items-center space-x-8">
-              <a href="#" className="text-light-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <Link
+                to="/"
+                className="text-light-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
                 Home
-              </a>
-              <a href="#" className="text-light-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              </Link>
+              <Link
+                to="/"
+                className="text-light-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
                 Movies
-              </a>
-              <a href="#" className="text-light-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              </Link>
+              <Link
+                to="/"
+                className="text-light-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
                 TV Shows
-              </a>
-              <a href="#" className="text-light-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              </Link>
+              <Link
+                to="/"
+                className="text-light-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
                 About
-              </a>
+              </Link>
             </div>
           </div>
 
           {/* Sign In Button */}
           <div className="hidden md:block">
-            <button className="btnGradient cursor-pointer hover:btnHover text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
-              Sign In
-            </button>
+            <Link to="/signin">
+              <button className="btnGradient cursor-pointer hover:btnHover text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+                Sign In
+              </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -75,21 +92,37 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#030014]/95 backdrop-blur-md">
-            <a href="#" className="text-light-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <Link
+              to={"/"}
+              className="text-light-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
               Home
-            </a>
-            <a href="#" className="text-light-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            </Link>
+
+            <Link
+              to="/"
+              className="text-light-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
               Movies
-            </a>
-            <a href="#" className="text-light-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            </Link>
+            <Link
+              to="/"
+              className="text-light-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
               TV Shows
-            </a>
-            <a href="#" className="text-light-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            </Link>
+            <Link
+              to="/"
+              className="text-light-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
               About
-            </a>
-            <button className=" cursor-pointer w-full mt-4 gradient text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
-              Sign In
-            </button>
+            </Link>
+
+            <Link to="/signin">
+              <button className=" text-start cursor-pointer w-full mt-4 gradient text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">
+                Sign In
+              </button>
+            </Link>
           </div>
         </div>
       )}
@@ -97,4 +130,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
