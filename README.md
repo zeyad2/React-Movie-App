@@ -1,5 +1,5 @@
 # MovieApp
-Deployed to vercel: https://react-movie-app-git-main-zeyadsattarme-gmailcoms-projects.vercel.app/
+Deployed to CloudFlare: https://movie-app-vhq.pages.dev/
 
 MovieApp is a modern web application for discovering and searching movies, built with React and Vite. It provides a sleek, responsive interface for browsing popular movies, searching by title, and viewing movie details, all powered by The Movie Database (TMDB) API.
 
